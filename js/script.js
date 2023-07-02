@@ -39,7 +39,7 @@ addSign.addEventListener("click", function () {
   const sum = usersNumber1 + usersNumber2;
 
   //отобразить результат в <p>
-  totalValue.innerHTML = sum;
+  totalValue.innerHTML = sum.toFixed(2);
 });
 
 subSign.addEventListener("click", function () {
@@ -50,7 +50,7 @@ subSign.addEventListener("click", function () {
     alert("Input 1 OR Input 2 is empty");
   }
 
-  totalValue.innerHTML = usersNumber1 - usersNumber2;
+  totalValue.innerHTML = (usersNumber1 - usersNumber2).toFixed(2);
 
   if (usersNumber1 == "" || usersNumber2 == "") {
     totalValue.innerHTML = null;
@@ -65,7 +65,7 @@ multSign.addEventListener("click", function () {
     alert("Input 1 OR Input 2 is empty");
   }
 
-  totalValue.innerHTML = usersNumber1 * usersNumber2;
+  totalValue.innerHTML = (usersNumber1 * usersNumber2).toFixed(2);
 
   if (usersNumber1 == "" || usersNumber2 == "") {
     totalValue.innerHTML = null;
@@ -80,7 +80,7 @@ divSign.addEventListener("click", function () {
     alert("Input 1 OR Input 2 is empty");
   }
 
-  totalValue.innerHTML = usersNumber1 / usersNumber2;
+  totalValue.innerHTML = (usersNumber1 / usersNumber2).toFiaxed(2);
 
   if (usersNumber1 == "" || usersNumber2 == "") {
     totalValue.innerHTML = null;
