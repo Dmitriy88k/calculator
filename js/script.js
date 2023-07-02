@@ -8,25 +8,43 @@ const divSign = document.getElementById("division");
 const powSign = document.getElementById("power");
 const clearSign = document.getElementById("clear");
 const totalValue = document.getElementById("result");
-const firstInputErrorText = document.getElementById('input-error-1')
+const firstInputErrorText = document.getElementById("input-error-1");
 
 // 1. Не показывать алерт, а отображать как ошибку под инпутом
 // 2. Изменить стили
 // 3. переписать остальные функции как addSign
 
-firstInput.addEventListener('input', (event) => {
-  const value = event.target.value
+// variant 1 - use keypress
+document.body.addEventListener("keyup", (event) => {
+  if (event.code === "Equal" && event.shiftKey) {
+    const usersNumber1 = Number(firstInput.value);
+    const usersNumber2 = Number(secondInput.value);
+
+    //При нажатии на кнопку + получаем ответ
+    const sum = usersNumber1 + usersNumber2;
+
+    //отобразить результат в <p>
+    totalValue.innerHTML = sum.toFixed(2);
+  }
+});
+
+firstInput.addEventListener("input", (event) => {
+  const value = event.target.value;
+
+  if (isNaN(Number(value))) {
+    firstInput.value = value.replace(/[^\d.-]+/g, '');
+  }
 
   if (!value) {
     event.target.style.border = "1px solid red";
-    firstInputErrorText.style.display = 'inline';
+    firstInputErrorText.style.display = "inline";
   } else {
     firstInput.style.border = "none";
-    firstInputErrorText.style.display = 'none';
+    firstInputErrorText.style.display = "none";
   }
-})
+});
 
-addSign.addEventListener("click", function () {
+addSign.addEventListener("click", function (event) {
   if (firstInput.value === "" || secondInput.value === "") {
     return;
   }
@@ -95,7 +113,7 @@ powSign.addEventListener("click", function () {
     alert("Input 1 OR Input 2 is empty");
   }
 
-  totalValue.innerHTML = Math.pow(usersNumber1, usersNumber2)
+  totalValue.innerHTML = Math.pow(usersNumber1, usersNumber2);
 
   if (usersNumber1 == "" || usersNumber2 == "") {
     totalValue.innerHTML = null;
