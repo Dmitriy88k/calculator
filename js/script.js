@@ -27,7 +27,7 @@ addSign.addEventListener('click', function() {
   totalValue = usersNumber1 + usersNumber2;
 
   //отобразить результат в <p> 
-  result.innerHTML = totalValue;
+  result.innerHTML = totalValue.toFixed(2);
 
   if (usersNumber1 == "" || usersNumber2 =="") {
     result.innerHTML = null;
@@ -46,7 +46,7 @@ subSign.addEventListener('click', function() {
 
   totalValue = usersNumber1 - usersNumber2;
 
-  result.innerHTML = totalValue;
+  result.innerHTML = totalValue.toFixed(2);
   
   if (usersNumber1 == "" || usersNumber2 =="") {
     result.innerHTML = null;
@@ -64,7 +64,7 @@ multSign.addEventListener('click', function() {
 
   totalValue = usersNumber1 * usersNumber2;
 
-  result.innerHTML = totalValue;
+  result.innerHTML = totalValue.toFixed(2);
   
   if (usersNumber1 == "" || usersNumber2 =="") {
     result.innerHTML = null;
@@ -82,7 +82,7 @@ divSign.addEventListener('click', function() {
 
   totalValue = usersNumber1 / usersNumber2;
 
-  result.innerHTML = totalValue;
+  result.innerHTML = totalValue.toFixed(2);
   
   if (usersNumber1 == "" || usersNumber2 =="") {
     result.innerHTML = null;
@@ -101,7 +101,7 @@ powSign.addEventListener('click', function() {
 
   let totalValue = Math.pow(usersNumber1, usersNumber2);
 
-  result.innerHTML = totalValue;
+  result.innerHTML = totalValue.toFixed(2);
 
   if (usersNumber1 == "" || usersNumber2 =="") {
     result.innerHTML = null;
