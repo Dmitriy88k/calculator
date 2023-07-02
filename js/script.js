@@ -14,17 +14,21 @@ const firstInputErrorText = document.getElementById("input-error-1");
 // 2. Изменить стили
 // 3. переписать остальные функции как addSign
 
+function add() {
+  const usersNumber1 = Number(firstInput.value);
+  const usersNumber2 = Number(secondInput.value);
+
+  return usersNumber1 + usersNumber2;
+}
+
+function updateResult (newResult) {
+  totalValue.innerHTML = newResult.toFixed(2);
+}
+
 // variant 1 - use keypress
 document.body.addEventListener("keyup", (event) => {
   if (event.code === "Equal" && event.shiftKey) {
-    const usersNumber1 = Number(firstInput.value);
-    const usersNumber2 = Number(secondInput.value);
-
-    //При нажатии на кнопку + получаем ответ
-    const sum = usersNumber1 + usersNumber2;
-
-    //отобразить результат в <p>
-    totalValue.innerHTML = sum.toFixed(2);
+    updateResult(add())
   }
 });
 
@@ -49,15 +53,7 @@ addSign.addEventListener("click", function (event) {
     return;
   }
 
-  //Получить значения с input
-  const usersNumber1 = Number(firstInput.value);
-  const usersNumber2 = Number(secondInput.value);
-
-  //При нажатии на кнопку + получаем ответ
-  const sum = usersNumber1 + usersNumber2;
-
-  //отобразить результат в <p>
-  totalValue.innerHTML = sum.toFixed(2);
+  updateResult(add());
 });
 
 subSign.addEventListener("click", function () {
