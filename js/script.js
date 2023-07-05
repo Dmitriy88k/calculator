@@ -8,60 +8,47 @@ const multSign = document.getElementById('multiplication');
 const divSign = document.getElementById('division')
 const powSign = document.getElementById('power')
 const clearSign = document.getElementById('clear')
-const totalValue = document.getElementById('result')
+let totalValue = document.getElementById('result')
 
 
-//При клике на знак "+" => вызываем функцию прибавления! 
+
 addSign.addEventListener('click', function() {
-  
-  //Если хотя бы один из инпутов пустой, то выдаст alert
-  if (firstInput.value === "" || secondInput.value === "") {
-    alert("Input 1 OR Input 2 is empty");
-    return;
-  }
 
   //Получить значения с input
-  const usersNumber1 = firstInput.value;
-  const usersNumber2 = secondInput.value;
-  
-  //Переформатируем в числа значения с input  
-  const num1 = Number(usersNumber1);
-  const num2 = Number(usersNumber2);
-  
-  //При нажатии на кнопку + получаем ответ
-  const sum = num1 + num2;
+  const usersNumber1 = Number(firstInput.value);
+  const usersNumber2 = Number(secondInput.value);
 
-  //отобразить результат в <p> tag
-  totalValue.innerHTML = sum; 
 
-})
+  //Если один из инпутов пустой, то выдает alert
+  if (usersNumber1 == "" || usersNumber2 == "") {
+    alert("Input 1 OR Input 2 is empty");
+  }
 
-//При нажатии на знак "-" вызываем функцию вычитания
+// variant 1 - use keypress
+document.body.addEventListener("keyup", (event) => {
+  if (event.code === "Equal" && event.shiftKey) {
+    updateResult(add())
+  }
+});
+
+firstInput.addEventListener("input", (event) => {
+  const value = event.target.value;
+
+  if (isNaN(Number(value))) {
+    firstInput.value = value.replace(/[^\d.-]+/g, '');
+  }
+
+  if (!value) {
+    event.target.style.border = "1px solid red";
+    firstInputErrorText.style.display = "inline";
+  } else {
+    firstInput.style.border = "none";
+    firstInputErrorText.style.display = "none";
+  }
+});
+
+
 subSign.addEventListener('click', function() {
-  
-  //Если хотя бы один input не введен то выдаст ошибку
-  if (firstInput.value === "" || secondInput.value === "") {
-    alert("Input 1 OR Input 2 is empty");   
-    return;
-  }
-  
-  //извлекаем числа из инпутов
-  const usersNumber1 = firstInput.value;
-  const usersNumber2 = secondInput.value;
-  
-  //форматируем input в номера
-  const num1 = Number(usersNumber1);
-  const num2 = Number(usersNumber2);
-  
-  //Вычитаем числа и получаем конечное число
-  const sum = num1 - num2;
-  
-  //Выводим конечное число в <p> tag
-  totalValue.innerHTML = sum;
-
-})
-
-multSign.addEventListener('click', function() {
   const usersNumber1 = Number(firstInput.value);
   const usersNumber2 = Number(secondInput.value);
 
@@ -69,7 +56,7 @@ multSign.addEventListener('click', function() {
     alert("Input 1 OR Input 2 is empty");
   }
 
-  totalValue = usersNumber1 * usersNumber2;
+  totalValue = usersNumber1 - usersNumber2;
 
   result.innerHTML = totalValue.toFixed(2);
   
@@ -79,7 +66,7 @@ multSign.addEventListener('click', function() {
 
 })
 
-divSign.addEventListener('click', function() {
+multSign.addEventListener("click", function () {
   const usersNumber1 = Number(firstInput.value);
   const usersNumber2 = Number(secondInput.value);
 
@@ -87,18 +74,14 @@ divSign.addEventListener('click', function() {
     alert("Input 1 OR Input 2 is empty");
   }
 
-  totalValue = usersNumber1 / usersNumber2;
+  totalValue.innerHTML = (usersNumber1 * usersNumber2).toFixed(2);
 
-  result.innerHTML = totalValue.toFixed(2);
-  
-  if (usersNumber1 == "" || usersNumber2 =="") {
-    result.innerHTML = null;
+  if (usersNumber1 == "" || usersNumber2 == "") {
+    totalValue.innerHTML = null;
   }
+});
 
-})
-
-
-powSign.addEventListener('click', function() {
+divSign.addEventListener("click", function () {
   const usersNumber1 = Number(firstInput.value);
   const usersNumber2 = Number(secondInput.value);
 
@@ -106,27 +89,30 @@ powSign.addEventListener('click', function() {
     alert("Input 1 OR Input 2 is empty");
   }
 
-  let totalValue = Math.pow(usersNumber1, usersNumber2);
+  totalValue.innerHTML = (usersNumber1 / usersNumber2).toFiaxed(2);
 
-  result.innerHTML = totalValue.toFixed(2);
+  if (usersNumber1 == "" || usersNumber2 == "") {
+    totalValue.innerHTML = null;
+  }
+});
 
-  if (usersNumber1 == "" || usersNumber2 =="") {
-    result.innerHTML = null;
+powSign.addEventListener("click", function () {
+  const usersNumber1 = Number(firstInput.value);
+  const usersNumber2 = Number(secondInput.value);
+
+  if (usersNumber1 == "" || usersNumber2 == "") {
+    alert("Input 1 OR Input 2 is empty");
   }
 
-})
+  totalValue.innerHTML = Math.pow(usersNumber1, usersNumber2);
 
-clearSign.addEventListener('click', function() {
+  if (usersNumber1 == "" || usersNumber2 == "") {
+    totalValue.innerHTML = null;
+  }
+});
+
+clearSign.addEventListener("click", function () {
   firstInput.value = "";
   secondInput.value = "";
   result.innerHTML = null;
-})
-
-
-
-
-
-
-
-
-
+});

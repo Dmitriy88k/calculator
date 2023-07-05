@@ -67,3 +67,10 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
+
+.input-error {
+  font-weight: 700;
+  font-size: 2em;
+  color: black;
+  display: none;
+}
