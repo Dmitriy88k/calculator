@@ -41,8 +41,6 @@ p:empty:not(:focus)::before {
 }
 
 
-
-
 #result {
   max-width: 100px;
   overflow: hidden;

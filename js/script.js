@@ -11,6 +11,8 @@ const clearSign = document.getElementById('clear')
 const totalValue = document.getElementById('result')
 
 
+
+
 //При клике на знак "+" => вызываем функцию прибавления! 
 addSign.addEventListener('click', function() {
   
@@ -24,7 +26,7 @@ addSign.addEventListener('click', function() {
   const usersNumber1 = firstInput.value;
   const usersNumber2 = secondInput.value;
   
-  //Переформатируем в числа значения с input  
+  //Форматируем input в номера
   const num1 = Number(usersNumber1);
   const num2 = Number(usersNumber2);
   
@@ -32,88 +34,109 @@ addSign.addEventListener('click', function() {
   const sum = num1 + num2;
 
   //отобразить результат в <p> tag
-  totalValue.innerHTML = sum; 
+  totalValue.innerHTML = sum.toFixed(2); 
 
 })
 
-//При нажатии на знак "-" вызываем функцию вычитания
+//При нажатии на знак "-" вызываем функцию вычитания!
 subSign.addEventListener('click', function() {
   
-  //Если хотя бы один input не введен то выдаст ошибку
+  //Если хотя бы один из инпутов пустой, то выдаст alert
   if (firstInput.value === "" || secondInput.value === "") {
     alert("Input 1 OR Input 2 is empty");   
     return;
   }
   
-  //извлекаем числа из инпутов
+  //Получить значения с input
   const usersNumber1 = firstInput.value;
   const usersNumber2 = secondInput.value;
   
-  //форматируем input в номера
+  //Форматируем input в номера
   const num1 = Number(usersNumber1);
   const num2 = Number(usersNumber2);
   
-  //Вычитаем числа и получаем конечное число
+  //При нажатии на кнопку - получаем ответ
   const sum = num1 - num2;
   
-  //Выводим конечное число в <p> tag
-  totalValue.innerHTML = sum;
+  //отобразить результат в <p> tag
+  totalValue.innerHTML = sum.toFixed(2);
 
 })
 
+
+//При нажатии на знак "*" вызываем функцию умножения!
 multSign.addEventListener('click', function() {
-  const usersNumber1 = Number(firstInput.value);
-  const usersNumber2 = Number(secondInput.value);
-
-  if (usersNumber1 == "" || usersNumber2 == "") {
+  //Если хотя бы один из инпутов пустой, то выдаст alert
+  if (firstInput.value === "" || secondInput.value === "") {
     alert("Input 1 OR Input 2 is empty");
+
+    return;
   }
 
-  totalValue = usersNumber1 * usersNumber2;
+  //Получить значения с input
+  const usersNumber1 = firstInput.value;
+  const usersNumber2 = secondInput.value;
 
-  result.innerHTML = totalValue.toFixed(2);
+  //Форматируем input в номера
+  const num1 = Number(usersNumber1);
+  const num2 = Number(usersNumber2);
+
+  //При нажатии на кнопку * получаем ответ
+  const sum = num1 * num2;
+
+  //отобразить результат в <p> tag
+  totalValue.innerHTML = sum.toFixed(2);
   
-  if (usersNumber1 == "" || usersNumber2 =="") {
-    result.innerHTML = null;
-  }
-
 })
 
+
+//При нажатии на знак "/" вызываем функцию деления!
 divSign.addEventListener('click', function() {
-  const usersNumber1 = Number(firstInput.value);
-  const usersNumber2 = Number(secondInput.value);
 
-  if (usersNumber1 == "" || usersNumber2 == "") {
+//Если хотя бы один из инпутов пустой, то выдаст alert
+  if (firstInput.value === "" || secondInput.value === "") {
     alert("Input 1 OR Input 2 is empty");
+
+    return;
   }
 
-  totalValue = usersNumber1 / usersNumber2;
+  //Получить значения с input
+  const usersNumber1 = firstInput.value;
+  const usersNumber2 = secondInput.value;
 
-  result.innerHTML = totalValue.toFixed(2);
+  //Форматируем input в номера
+  const num1 = Number(usersNumber1);
+  const num2 = Number(usersNumber2);
+
+  //При нажатии на кнопку "/" получаем ответ
+  const sum = num1 / num2;
   
-  if (usersNumber1 == "" || usersNumber2 =="") {
-    result.innerHTML = null;
-  }
-
+  //отобразить результат в <p> tag
+  totalValue.innerHTML = sum.toFixed(2);
 })
 
 
 powSign.addEventListener('click', function() {
-  const usersNumber1 = Number(firstInput.value);
-  const usersNumber2 = Number(secondInput.value);
-
-  if (usersNumber1 == "" || usersNumber2 == "") {
+  //Если хотя бы один из инпутов пустой, то выдаст alert
+  if (firstInput.value === "" || secondInput.value === "") {
     alert("Input 1 OR Input 2 is empty");
+
+    return;
   }
 
-  let totalValue = Math.pow(usersNumber1, usersNumber2);
+  //Получить значения с input
+  const usersNumber1 = firstInput.value;
+  const usersNumber2 = secondInput.value;
 
-  result.innerHTML = totalValue.toFixed(2);
+  //Форматируем input в номера
+  const num1 = Number(usersNumber1);
+  const num2 = Number(usersNumber2);
 
-  if (usersNumber1 == "" || usersNumber2 =="") {
-    result.innerHTML = null;
-  }
+  //При нажатии на кнопку "pow" получаем ответ
+  const sum = Math.pow(num1, num2);
 
+  //отобразить результат в <p> tag
+  totalValue.innerHTML = sum;
 })
 
 clearSign.addEventListener('click', function() {
