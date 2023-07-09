@@ -9,6 +9,8 @@ const divSign = document.getElementById('division')
 const powSign = document.getElementById('power')
 const clearSign = document.getElementById('clear')
 const totalValue = document.getElementById('result')
+const warningSign = document.getElementById('warning')
+
 
 
 
@@ -17,10 +19,28 @@ const totalValue = document.getElementById('result')
 addSign.addEventListener('click', function() {
   
   //Если хотя бы один из инпутов пустой, то выдаст alert
+  if (!firstInput.value) {
+    firstInput.style.border = '2px solid red';
+    warningSign.style.visibility = 'visible';
+    firstInput.placeholder="Enter a number";
+  }
+
+  if (!secondInput.value) {
+    secondInput.style.border = '2px solid red';
+    warningSign.style.visibility = 'visible';
+    secondInput.placeholder="Enter a number";
+  }
+
   if (firstInput.value === "" || secondInput.value === "") {
-    alert("Input 1 OR Input 2 is empty");
+    
     return;
   }
+
+  firstInput.style.border = 'none';
+  secondInput.style.border = 'none';
+  warningSign.style.display = 'none';
+  firstInput.placeholder = 'Input 1';
+  secondInput.placeholder = 'Input 2';
 
   //Получить значения с input
   const usersNumber1 = firstInput.value;
@@ -34,7 +54,7 @@ addSign.addEventListener('click', function() {
   const sum = num1 + num2;
 
   //отобразить результат в <p> tag
-  totalValue.innerHTML = sum.toFixed(2); 
+  totalValue.innerHTML = sum; 
 
 })
 
@@ -42,10 +62,28 @@ addSign.addEventListener('click', function() {
 subSign.addEventListener('click', function() {
   
   //Если хотя бы один из инпутов пустой, то выдаст alert
+  if (!firstInput.value) {
+    firstInput.style.border = '2px solid red';
+    warningSign.style.visibility = 'visible';
+    firstInput.placeholder="Enter a number";
+  }
+
+  if (!secondInput.value) {
+    secondInput.style.border = '2px solid red';
+    warningSign.style.visibility = 'visible';
+    secondInput.placeholder="Enter a number";
+  }
+
   if (firstInput.value === "" || secondInput.value === "") {
-    alert("Input 1 OR Input 2 is empty");   
+    
     return;
   }
+
+  firstInput.style.border = 'none';
+  secondInput.style.border = 'none';
+  warningSign.style.display = 'none';
+  firstInput.placeholder = 'Input 1';
+  secondInput.placeholder = 'Input 2';
   
   //Получить значения с input
   const usersNumber1 = firstInput.value;
@@ -59,19 +97,37 @@ subSign.addEventListener('click', function() {
   const sum = num1 - num2;
   
   //отобразить результат в <p> tag
-  totalValue.innerHTML = sum.toFixed(2);
+  totalValue.innerHTML = sum;
 
 })
 
 
 //При нажатии на знак "*" вызываем функцию умножения!
 multSign.addEventListener('click', function() {
-  //Если хотя бы один из инпутов пустой, то выдаст alert
-  if (firstInput.value === "" || secondInput.value === "") {
-    alert("Input 1 OR Input 2 is empty");
 
+  //Если хотя бы один из инпутов пустой, то выдаст alert
+  if (!firstInput.value) {
+    firstInput.style.border = '2px solid red';
+    warningSign.style.visibility = 'visible';
+    firstInput.placeholder="Enter a number";
+  }
+
+  if (!secondInput.value) {
+    secondInput.style.border = '2px solid red';
+    warningSign.style.visibility = 'visible';
+    secondInput.placeholder="Enter a number";
+  }
+
+  if (firstInput.value === "" || secondInput.value === "") {
+    
     return;
   }
+
+  firstInput.style.border = 'none';
+  secondInput.style.border = 'none';
+  warningSign.style.display = 'none';
+  firstInput.placeholder = 'Input 1';
+  secondInput.placeholder = 'Input 2';
 
   //Получить значения с input
   const usersNumber1 = firstInput.value;
@@ -85,7 +141,7 @@ multSign.addEventListener('click', function() {
   const sum = num1 * num2;
 
   //отобразить результат в <p> tag
-  totalValue.innerHTML = sum.toFixed(2);
+  totalValue.innerHTML = sum;
   
 })
 
@@ -93,12 +149,30 @@ multSign.addEventListener('click', function() {
 //При нажатии на знак "/" вызываем функцию деления!
 divSign.addEventListener('click', function() {
 
-//Если хотя бы один из инпутов пустой, то выдаст alert
-  if (firstInput.value === "" || secondInput.value === "") {
-    alert("Input 1 OR Input 2 is empty");
+  //Если хотя бы один из инпутов пустой, то выдаст alert
+  if (!firstInput.value) {
+    firstInput.style.border = '2px solid red';
+    warningSign.style.visibility = 'visible';
+    firstInput.placeholder="Enter a number";
+  }
 
+  if (!secondInput.value) {
+    secondInput.style.border = '2px solid red';
+    warningSign.style.visibility = 'visible';
+    secondInput.placeholder="Enter a number";
+  }
+
+  if (firstInput.value === "" || secondInput.value === "") {
+    
     return;
   }
+
+  firstInput.style.border = 'none';
+  secondInput.style.border = 'none';
+  warningSign.style.display = 'none';
+  firstInput.placeholder = 'Input 1';
+  secondInput.placeholder = 'Input 2';
+
 
   //Получить значения с input
   const usersNumber1 = firstInput.value;
@@ -117,12 +191,29 @@ divSign.addEventListener('click', function() {
 
 
 powSign.addEventListener('click', function() {
-  //Если хотя бы один из инпутов пустой, то выдаст alert
-  if (firstInput.value === "" || secondInput.value === "") {
-    alert("Input 1 OR Input 2 is empty");
+    //Если хотя бы один из инпутов пустой, то выдаст alert
+  if (!firstInput.value) {
+    firstInput.style.border = '2px solid red';
+    warningSign.style.visibility = 'visible';
+    firstInput.placeholder="Enter a number";
+  }
 
+  if (!secondInput.value) {
+    secondInput.style.border = '2px solid red';
+    warningSign.style.visibility = 'visible';
+    secondInput.placeholder="Enter a number";
+  }
+
+  if (firstInput.value === "" || secondInput.value === "") {
+    
     return;
   }
+
+  firstInput.style.border = 'none';
+  secondInput.style.border = 'none';
+  warningSign.style.display = 'none';
+  firstInput.placeholder = 'Input 1';
+  secondInput.placeholder = 'Input 2';
 
   //Получить значения с input
   const usersNumber1 = firstInput.value;
@@ -143,6 +234,11 @@ clearSign.addEventListener('click', function() {
   firstInput.value = "";
   secondInput.value = "";
   result.innerHTML = null;
+  firstInput.style.border = 'none';
+  secondInput.style.border = 'none';
+  warningSign.style.visibility = 'hidden';
+  firstInput.placeholder = 'Input 1';
+  secondInput.placeholder = 'Input 2';
 })
 
 
